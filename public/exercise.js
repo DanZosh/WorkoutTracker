@@ -94,7 +94,7 @@ function validateInputs() {
     addButton.setAttribute("disabled", true);
   }
 }
-
+//THIS MODIFIES THE PAGE WHEN THE USER SELECTS CARDIO VS RESISTANCE
 async function handleFormSubmit(event) {
   event.preventDefault();
 
