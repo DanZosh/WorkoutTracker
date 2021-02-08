@@ -4,11 +4,12 @@ const db = require("../models");
 module.exports = function(app) { //router method 1
 // router//router method 2
 app//router method 1
-    .get("/api/workouts",(req,res) => { //this is the
-        console.log("get request: /api/workouts from apiRoutes.js") //why cant i see this?
+//THIS IS FOR THE `getLastWorkout` function
+    .get("/api/workouts",(req,res) => { 
+            console.log("get request: /api/workouts from apiRoutes.js") //why cant i see this?
         db.Workout.find({})
         .then(dbWorkout => {
-            console.log("db.Workout.find().then")
+                console.log("db.Workout.find().then")
             res.json(dbWorkout);
         })
         .catch(err => {
@@ -18,7 +19,8 @@ app//router method 1
 )
 // router//router method 2
 app//router method 1
-    .put("/api/workouts/:id", function (req,res){ //this is the put request
+//THIS IS FOR THE `addExercise` put function
+    .put("/api/workouts/:id", function (req,res){ 
             console.log("get request: /api/workouts from apiRoutes.js")
         db.Workout.findByIdAndUpdate( //find the WORKOUT by ID and update it by pushing the EXERCISE to the workout
             req.params.id, //`conditions`get the id
@@ -36,9 +38,9 @@ app//router method 1
 
 // router//router method 2
 app//router method 1
-.post("/api/workouts",({body},res) => { //this is the post
-    newWorkout = {body}
-    db.Workout.create(newWorkout)
+//this is the `createWorkout` post function
+.post("/api/workouts",(req,res) => { 
+    db.Workout.create(req.body)
     .then(dbWorkout => {
             console.log("db.Workout.create().then")
         res.json(dbWorkout);
@@ -48,9 +50,21 @@ app//router method 1
     });
 })
 
-// router.get("/api/workouts",() => { //this is the post
-
-// }
-// )
-} //router method 1
+// router //router method 2
+app//router method 1
+//this is the `createWorkout` post function
+.get("/api/workouts/range",(req,res) => {
+    db.Workout.find({
+        minNum : { $gte :  50},
+        maxNum : { $lte :  100}
+    })
+    .then(dbWorkout => {
+            console.log("db.Workout.find().then")
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    });
+}) //router method 1
+}
 // module.exports = router; //router method 2
