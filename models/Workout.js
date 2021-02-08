@@ -3,19 +3,26 @@
 // START ATTEMPT1
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const {exerciseSchema} = require("./Exercise")
+
 const WorkoutSchema = new Schema({
-    day: Date,
+    day: {
+        type:Date,
+        default:Date.now
+    },
     exercise:[//i want to hold an array of exercises
-        {
-            type:Schema.Types.ObjectId,
-            ref: "Exercise"
-        }
+        // {
+        //     type:Schema.Types.ObjectId,
+        //     ref: "Exercises"
+        // }
+        exerciseSchema
     ]
 });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 module.exports = Workout
 // END ATTEMPT1
+
 // // START ATTEMPT2
 // const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;

@@ -5,8 +5,8 @@ module.exports = function(app) { //router method 1
 // router//router method 2
 app//router method 1
 //THIS IS FOR THE `getLastWorkout` function
-    .get("/api/workouts",(req,res) => { 
-            console.log("get request: /api/workouts from apiRoutes.js") //why cant i see this?
+    .get("/api/workouts",(req, res) => { 
+            console.log("get request: /api/workouts from apiRoutes.js") 
         db.Workout.find({})
         .then(dbWorkout => {
                 console.log("db.Workout.find().then")
@@ -24,10 +24,10 @@ app//router method 1
             console.log("get request: /api/workouts from apiRoutes.js")
         db.Workout.findByIdAndUpdate( //find the WORKOUT by ID and update it by pushing the EXERCISE to the workout
             req.params.id, //`conditions`get the id
-            {$push:{exercises:req.body}},  //`update` push the body of the webpage as a document to our Workout collection
+            {$push:{Exercises:req.body}},  //`update` push the body of the webpage as a document to our Workout collection
             { new: true }
         )
-        .then(dbWorkout => {
+        .then(dbWorkout => { //what the database gives me back - the object i created
                 console.log("db.Workout.findbyIDandUpdate().then")
             res.json(dbWorkout);
         })
