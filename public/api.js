@@ -15,7 +15,7 @@ const API = {
   async addExercise(data) {
     const id = location.search.split("=")[1]; //this takes the url content after the `?`, splits the content at `=` and gets the string after the equal sign
     console.log("addExercise from api.js");
-    console.log("id from api.js", id) //why is my id undefined?
+    console.log("id from api.js", id) 
     const res = await fetch("/api/workouts/" + id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
