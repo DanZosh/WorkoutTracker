@@ -16,13 +16,13 @@ const WorkoutSchema = new Schema({
     ]
 }, options); //this will allow us to reduce the time and weight
 //Set up virtual to add the duration 
-WorkoutSchema.virtual('totalWorkoutDuration').get(function() { //I want to compile the duration
-    array = [this.exercises]
-    return array.reduce((accumulator, currentValue) =>{
-        return accumulator + currentValue
-    },0) //return 0 if the workout hasn't started yet
+// WorkoutSchema.virtual('totalDuration').get(function() { //I want to compile the duration
+//     array = this.exercises
+//     return array.reduce((total, exercise) =>{
+//         return total + exercise.duration
+//     },0) //return 0 if the workout hasn't started yet
 
-  });
+//   });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);//1
 module.exports = Workout
