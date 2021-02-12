@@ -49,7 +49,7 @@ app//router method 1
     //     exercise: [req.body]
     // }
     console.log(req.body)
-    db.Workout.create({})
+    db.create({})
 
     .then(dbWorkout => {
             console.log("db.Workout.create().then")
@@ -64,7 +64,7 @@ app//router method 1
 app//router method 1
 //this is the `createWorkout` post function
 .get("/api/workouts/range",(req,res) => {
-    db.Workout.find({
+    db.find({
         // minNum : { $gte :  50}, //this  is a placeholder
         // maxNum : { $lte :  100} //this  is a placeholder
     })

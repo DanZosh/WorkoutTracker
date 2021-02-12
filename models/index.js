@@ -3,7 +3,7 @@
 
 // START ATTEMPT 1
 module.exports = {
-    Exercise: require("./Exercise"),
+    // Exercise: require("./Exercise"),
     Workout: require("./Workout")
 };
 
@@ -13,5 +13,5 @@ module.exports = {
 //     Workout: require("./Workout")
 // };
 
-//CLASS EXAMPLE
+
 
