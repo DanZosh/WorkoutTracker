@@ -3,6 +3,7 @@
 // START ATTEMPT1
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema; //PULL OUT SCHEMA FROM THE MONGOOSE OBJECT mongoose.schema also works
+const options = {toJson: {virtuals:true}}
 const {exerciseSchema} = require("./Exercise")
 
 const WorkoutSchema = new Schema({
@@ -11,15 +12,19 @@ const WorkoutSchema = new Schema({
         default:Date.now
     },
     exercises:[//i want to hold an array of exercises
-        // {
-        //     type:Schema.Types.ObjectId,
-        //     ref: "Exercises"
-        // }
         exerciseSchema
     ]
-},{ toJSON: { virtuals: true } }); //this will allow us to compile the time and weight
+}, options); //this will allow us to reduce the time and weight
+//Set up virtual to add the duration 
+WorkoutSchema.virtual('totalWorkoutDuration').get(function() { //I want to compile the duration
+    array = [this.exercises]
+    return array.reduce((accumulator, currentValue) =>{
+        return accumulator + currentValue
+    },0) //return 0 if the workout hasn't started yet
 
-const Workout = mongoose.model("Workout", WorkoutSchema);
+  });
+
+const Workout = mongoose.model("Workout", WorkoutSchema);//1
 module.exports = Workout
 
 
