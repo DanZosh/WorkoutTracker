@@ -31,7 +31,7 @@ require("./routes/apiRoutes.js")(app);//router method 1
 // app.use(require("./routes/apiRoutes.js")); //router method 2
 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

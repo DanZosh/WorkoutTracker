@@ -60,6 +60,6 @@ See below for a list of helpful links:
 
 ## ScreenShots:
 A screenshot of the pages:
-* ![homepage.png](/screenshotLink/homepage.png)
-* ![cardio.png](/screenshotLink/cardio.png)
-* ![summary.png](/screenshotLink/summary.png)
+ ![homepage.png](/screenshotLink/homepage.png)
+ ![cardio.png](/screenshotLink/cardio.png)
+ ![summary.png](/screenshotLink/summary.png)
